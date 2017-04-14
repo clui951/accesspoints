@@ -1,4 +1,5 @@
 import subprocess
+from utilities import *
 
 class BaseWifiScanner(object):
 
@@ -10,7 +11,7 @@ class BaseWifiScanner(object):
 
 	def get_access_points(self):
 		output = self.call_subprocess(self.get_cmd())
-		results = self.parse_output(output)
+		results = self.parse_output(enforce_str(output))
 		return results
 
 	@staticmethod
